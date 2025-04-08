@@ -4,15 +4,18 @@ import { Observable, tap } from 'rxjs';
 import { User } from '../models/user.model';
 import { UserStoreService } from './user-store.service';
 import { Router } from '@angular/router';
+import { environment } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
-  private http = inject(HttpClient);
-  private userStore = inject(UserStoreService);
-  private router = inject(Router)
-  private baseUrl = 'https://api-65aqrsu3vq-uc.a.run.app/users';
+  constructor(
+    private http: HttpClient,
+    private userStore: UserStoreService,
+    private router: Router
+  ) {}
+  private baseUrl = `${environment.baseUrl}/users`;
 
   login(email: string): Observable<User> {
     return this.http.post<User>(`${this.baseUrl}/login`, { email }).pipe(
