@@ -1,0 +1,24 @@
+.app-header {
+  background-color: var(--primary-color);
+  color: var(--primary-text);
+  padding: 1rem;
+
+  .nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .logout-btn {
+    background: transparent;
+    border: 1px solid var(--primary-text);
+    color: var(--primary-text);
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    border-radius: 4px;
+
+    &:hover {
+      background: rgba(255, 255, 255, 0.1);
+    }
+  }
+}

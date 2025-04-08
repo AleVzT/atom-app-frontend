@@ -2,3 +2,8 @@
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Inter, "Helvetica Neue", sans-serif; }
+:root {
+    --primary-color: #ff6f00;
+    --primary-hover: #e65100;
+    --primary-text: #ffffff;
+}
