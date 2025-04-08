@@ -1,36 +1,116 @@
-# ATOM FE CHALLENGE TEMPLATE - ANGULAR
+# 🧠 Task Manager - Angular Web Application
 
-Este proyecto es una plantilla con lo necesario para comenzar a desarrollar el front-end de la aplicación de la prueba técnica de Atom. Se base en Angular con la versión 17.3.6.
-Se ha realizado la instalación y configuración de varias dependencias necesarias para el desarrollo de la aplicación, como por ejemplo: Angular Material.
+Aplicación web desarrollada en Angular 17 que permite a los usuarios gestionar sus tareas de forma sencilla e intuitiva. Esta herramienta fue creada como propuesta para una oportunidad laboral y demuestra el uso de buenas prácticas, arquitectura limpia, principios SOLID y enfoque centrado en la escalabilidad y testeo.
 
-## Instrucciones
-Siéntete libre de clonar este repositorio y utilizarlo como base para el desarrollo de la aplicación. Sigue las indicates de la prueba técnica para completar la aplicación y desarrolla como más te sientas cómodo.
+## 📋 Funcionalidades
 
-De igual manera puedes documentar dentro de este archivo todo lo que deseas contar sobre tu desarrollo, como por ejemplo, decisiones de diseño, problemas encontrados, etc.
+- Crear tareas con título y descripción.
+- Editar tareas existentes.
+- Eliminar tareas.
+- Marcar tareas como completadas o pendientes.
+- Manejo de sesión simple con autenticación por email.
+- Notificaciones mediante snackbars para acciones como eliminación y errores.
+- Interfaz responsiva y moderna.
 
-## Comentarios sobre el desarrollo
-...
+---
 
-## Development server
+## 🧱 Arquitectura
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+La aplicación está construida siguiendo una **arquitectura limpia** y organizada en capas, promoviendo la separación de responsabilidades:
 
-## Code scaffolding
+```
+src/
+│
+├── app/
+│   ├── core/                # Módulos reutilizables y esenciales del sistema
+│   │   ├── guards/          # Guardas de rutas (ej. AuthGuard)
+│   │   ├── header/          # Componente de encabezado reutilizable
+│   │   └── interceptors/    # Interceptores HTTP (ej. manejo global de errores)
+│   │
+│   ├── modules/             # Módulos funcionales
+│   │   ├── auth/            # Módulo de autenticación (login por email)
+│   │   └── tasks/           # Módulo principal con componentes y lógica de tareas
+│   │
+│   ├── services/            # Servicios de dominio para interacción con API y lógica (UserService, TaskService)
+│   │
+│   ├── shared/              # Recursos reutilizables (pipes, directivas, componentes comunes)
+│   │
+│   └── app.routes.ts        # Configuración de rutas usando componentes standalone
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+```
 
-## Build
+- Se utilizaron componentes **standalone** (`standalone: true`) para reducir el acoplamiento entre módulos.
+- Uso de `signal` y `computed` en el store para manejar estado de usuario de forma reactiva.
+- Separación clara entre lógica de presentación, negocio y acceso a datos.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+---
 
-## Running unit tests
+## 🛠️ Tecnologías y Herramientas
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+- **Angular 17** con standalone components y Angular Signals.
+- **TypeScript** como lenguaje principal.
+- **Angular Material** para componentes visuales (botones, inputs, snackbars).
+- **Firebase Hosting** para el despliegue.
+- **ESLint** para análisis estático.
+- **RxJS** para manejo de flujos reactivos.
+- **Jasmine / Karma** para testing.
 
-## Running end-to-end tests
+---
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+## 🧪 Testing
 
-## Further help
+La aplicación incluye **pruebas unitarias e integración** para garantizar el correcto funcionamiento de los casos de uso principales.
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+- Se implementaron pruebas para servicios como:
+  - `UserService`
+  - `TaskService`
+  - `UserStoreService`
+- Se utilizaron mocks para servicios HTTP y dependencias.
+- Configuración personalizada de test con Jasmine y Karma.
+
+---
+
+## 🚀 Deploy
+
+La aplicación fue desplegada en **Firebase Hosting** con la siguiente configuración:
+
+- `firebase.json` incluye reescritura para `index.html` (SPA).
+- Carpeta de build: `dist/atom-challenge-fe-template`
+- Deploy manual vía `firebase deploy`
+
+🔗 **URL de la app:** [https://atom-api-backend.web.app](https://atom-api-backend.web.app)
+
+---
+
+## 🧑‍💻 Cómo ejecutar localmente
+
+```bash
+git clone https://github.com/tu-usuario/tu-repo.git
+cd tu-repo
+npm install
+ng serve
+```
+
+---
+
+## 📁 Scripts importantes
+
+```bash
+ng build --configuration production   # Build para producción
+ng test                               # Correr tests
+firebase deploy                       # Desplegar en Firebase Hosting
+```
+
+---
+
+## 📌 Notas finales
+
+Este proyecto representa una propuesta profesional con foco en buenas prácticas de desarrollo web moderno. Cualquier feedback será bien recibido para seguir mejorando. 🙌
+
+---
+
+## 👤 Autor
+
+**Alexandro Garcia**\
+Desarrollador Web
+
