@@ -85,7 +85,7 @@ La aplicación fue desplegada en **Firebase Hosting** con la siguiente configura
 ## 🧑‍💻 Cómo ejecutar localmente
 
 ```bash
-git clone https://github.com/tu-usuario/tu-repo.git
+git clone https://github.com/AleVzT/atom-app-frontend
 cd tu-repo
 npm install
 ng serve
